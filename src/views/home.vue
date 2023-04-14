@@ -8,6 +8,8 @@
       </el-button>
     </div>
 
+    <router-link to="/sample01">Sample01</router-link> | 
+
     <HelloWorld msg="Vue.js Demo"/>
     <el-dialog
       :before-close="handleClose"
@@ -20,15 +22,14 @@
         <el-button @click="dialogVisible = false" type="primary">ok</el-button>
       </span>
     </el-dialog>
+    
   </div>
 </template>
 
 <script>
-  // @ is an alias to /src
   import HelloWorld from '@/components/HelloWorld.vue';
-
   export default {
-    name: 'vHome',
+    name: 'home',
     components: {
       HelloWorld,
     },

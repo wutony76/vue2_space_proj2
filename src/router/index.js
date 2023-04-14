@@ -1,54 +1,74 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-// import view component
-import vHome from '../views/home.vue';
-// import vAbout from '../views/about.vue';
+import Layout from '@/layout/layout.vue'
+import HomeView from '@/views/HomeView.vue'
+import vGoods from 'views/goods'
+import vAbout from 'views/about'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: vHome,
+    redirect: 'home',
+    component: Layout,
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: HomeView
+      },
+    ]
   },
+
+  {
+    path: '/goods',
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        name: 'goods',
+        component: vGoods
+      },
+    ]
+  },
+  
+  {
+    path: '/about',
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        name: 'about',
+        component: vAbout
+      },
+    ]
+  },
+
+  {
+    path: '/sample01',
+    name: 'sample01',
+    component: Layout,
+  },
+
   // {
   //   path: '/about',
   //   name: 'about',
-  //   component: vAbout,
-  //   // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   // },
+  {
+    path: '/testHome',
+    name: 'testHome',
+    component: HomeView,
+    // component: vSample01,
+  },
+]
 
-  // // 微應用路徑 start.
-  // {
-  //   path: '/micro',
-  //   name: 'micro',
-  //   component: () => import('../views/micro.vue'),
-  // },
-  // {
-  //   path: '/micro/*',
-  //   component: () => import('../views/micro.vue'),
-  // },
-  // // 微應用路徑 end.
-
-  // {
-  //   path: '/page/a',
-  //   name: 'a',
-  //   component: () => import('../views/A.vue'),
-  // },
-  // {
-  //   path: '/page/b',
-  //   name: 'b',
-  //   component: () => import('../views/B.vue'),
-  // },
-];
-
-// export default routes;
-// console.log(routes)
 const router = new VueRouter({
-  base:'/',
-  mode:'history',
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
-export default router;
+
+export default router

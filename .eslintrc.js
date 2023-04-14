@@ -1,10 +1,18 @@
 module.exports = {
     "env": {
-        "browser": true,
-        "es2021": true
+			"browser": true,
+			"es2021": true,
+			"node": true,
+			"commonjs": true
     },
+		"globals": {
+			'Promise': 'off',
+			"process": true
+		}, 
     "extends": [
-        "plugin:vue/vue3-essential",
+			'plugin:vue/essential',
+			'eslint:recommended'
+        // "plugin:vue/vue3-essential",
         // "standard-with-typescript"
     ],
     "overrides": [
@@ -26,12 +34,12 @@ module.exports = {
     "rules": {
 			'vue/no-unused-components':'off',
 			'no-unused-vars':'off',
-
-			'vue/multi-word-component-names': [
-				'error',
-				{
-					ignores: ['micro'], //需要忽略的组件名
-				},
-			]
+			"vue/multi-word-component-names": "off"
+			// 'vue/multi-word-component-names': [
+			// 	'error',
+			// 	{
+			// 		ignores: ['micro'], //需要忽略的组件名
+			// 	},
+			// ]
     }
 }

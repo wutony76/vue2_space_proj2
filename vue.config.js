@@ -7,8 +7,11 @@ const resolve = (dir) => path.join(__dirname, '.', dir);
 // })
 
 module.exports = {
+  // transpileDependencies: true,
+  // lintOnSave:false,
   productionSourceMap: false,
-  publicPath: './',
+  // publicPath: './',    << url 會無法顯示 cannot GET
+  publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'assets',
   devServer: {

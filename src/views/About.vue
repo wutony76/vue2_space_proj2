@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script>
+
+</script>
+
 <style scoped>
   .about {
     color: #7265e6;
