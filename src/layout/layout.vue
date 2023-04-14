@@ -43,6 +43,13 @@
               <span slot="title">LAYOUT</span>
             </el-menu-item>
 
+            <el-menu-item index="/micro">
+              <i class="el-icon-menu"></i>
+              <span slot="title">MICRO</span>
+            </el-menu-item>
+
+
+
             <!-- <el-menu-item index="url-sample01">
               <router-link to="/sample01">Sample01</router-link>
             </el-menu-item>

@@ -2,7 +2,14 @@
 import { registerMicroApps, start, addGlobalUncaughtErrorHandler  } from 'qiankun'
 import apps from './app'
 // 主应用中注册微应用
-registerMicroApps(apps)
+registerMicroApps(apps, {
+  beforeLoad: (app) => {
+    console.log('ttttt before load', app)
+  },
+  afterMount: (app) => {
+    console.log('ttttt after mount', app)
+  },
+})
 addGlobalUncaughtErrorHandler((event) => {
   console.error("addGlobalUncaughtErrorHandler");
   console.error(event);

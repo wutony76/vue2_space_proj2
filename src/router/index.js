@@ -65,17 +65,45 @@ const routes = [
     component: Layout,
   },
 
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // },
   {
     path: '/testHome',
     name: 'testHome',
     component: HomeView,
-    // component: vSample01,
   },
+
+
+  // 微應用
+  // {
+  //   path: '/micro',
+  //   name: 'micro',
+  //   component: () => import('views/micro/index')
+  // },
+  // {
+  //   path: '/micro/*',
+  //   component: () => import('views/micro/index')
+  // },
+
+  {
+    path: '/micro',
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        name: 'micro',
+        component: () => import('views/micro/index')
+      },
+    ]
+  },
+  {
+    path: '/micro/*',
+    component: Layout,
+    children: [
+      {
+        path: '/',
+        component: () => import('views/micro/index')
+      },
+    ]
+  }
 ]
 
 const router = new VueRouter({
