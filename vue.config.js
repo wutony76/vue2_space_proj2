@@ -15,7 +15,8 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'assets',
   devServer: {
-    port: 9999,
+    port: 9000,
+    // port: 9999,
     host: '0.0.0.0',
     https: false,
     open: true
@@ -32,6 +33,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('views', resolve('src/views'))
+      .set('utils', resolve('src/utils'))
       // .set('api', resolve('src/apis'))
       // .set('common', resolve('src/common'))
   }

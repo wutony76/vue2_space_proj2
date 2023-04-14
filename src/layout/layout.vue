@@ -19,25 +19,30 @@
             :router='true'
           >
             <el-menu-item index="/home">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-eleme"></i>
               <span slot="title">INDEX</span>
             </el-menu-item>
 
-            <el-menu-item index="/about">
+            <el-menu-item index="/icons">
               <i class="el-icon-menu"></i>
+              <span slot="title">ICONS</span>
+            </el-menu-item>
+
+            <el-menu-item index="/about">
+              <i class="el-icon-star-on"></i>
               <span slot="title">ABOUT</span>
             </el-menu-item>
 
             <el-menu-item index="/goods">
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-s-goods"></i>
               <span slot="title">GOODS</span>
             </el-menu-item>
-
 
             <el-menu-item index="/sample01">
               <i class="el-icon-menu"></i>
               <span slot="title">LAYOUT</span>
             </el-menu-item>
+
             <!-- <el-menu-item index="url-sample01">
               <router-link to="/sample01">Sample01</router-link>
             </el-menu-item>
