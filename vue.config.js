@@ -34,6 +34,7 @@ module.exports = {
       .set('@', resolve('src'))
       .set('views', resolve('src/views'))
       .set('utils', resolve('src/utils'))
+      .set('store', resolve('src/store'))
       // .set('api', resolve('src/apis'))
       // .set('common', resolve('src/common'))
   }

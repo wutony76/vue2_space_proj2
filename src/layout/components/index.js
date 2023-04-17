@@ -1,2 +1,3 @@
-export {default as AppMain} from './appMain'
+export {default as AppMain} from './AppMain'
+export { default as AppSideMenu } from './AppSideMenu'
 

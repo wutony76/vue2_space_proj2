@@ -8,6 +8,9 @@
     <router-view/>
   </div>
 </template>
+<scirpt>
+
+</scirpt>
 
 <style>
 #app {

@@ -17,6 +17,11 @@ export default {
   name: 'vMicro',
   components: {
   },
+  created() {
+    console.log("c created")
+    console.log("c created", this.$route)
+    console.log("c created", this.$route.name)
+  },
   mounted() {
     if (!window.qiankunStarted) {
       window.qiankunStarted = true;
@@ -27,11 +32,6 @@ export default {
   data() {
     return {
     };
-  },
-  created() {
-    console.log("c created")
-    console.log("c created", this.$route)
-    console.log("c created", this.$route.name)
   },
   methods: {
   },

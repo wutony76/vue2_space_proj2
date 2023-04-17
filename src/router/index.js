@@ -7,9 +7,12 @@ import vGoods from 'views/goods'
 import vAbout from 'views/about'
 import vIcons from 'views/icons'
 
+import modulesRoutes from './routes'
+
+
 Vue.use(VueRouter)
 
-const routes = [
+const baseRoutes = [
   {
     path: '/',
     redirect: 'home',
@@ -83,33 +86,55 @@ const routes = [
   //   component: () => import('views/micro/index')
   // },
 
+  // {
+  //   path: '/micro',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: '/',
+  //       name: 'micro',
+  //       component: () => import('views/micro/index')
+  //     },
+  //   ]
+  // },
+  // {
+  //   path: '/micro/*',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: '/',
+  //       component: () => import('views/micro/index')
+  //     },
+  //   ]
+  // }
+
+  // {
+  //   path: '/pageA',
+  //   name: 'A',
+  //   component: () => import('views/A')
+  // },
+
   {
-    path: '/micro',
-    component: Layout,
-    children: [
-      {
-        path: '/',
-        name: 'micro',
-        component: () => import('views/micro/index')
-      },
-    ]
+    path: '/pageB',
+    name: 'B',
+    component: () => import('views/page/B')
   },
-  {
-    path: '/micro/*',
-    component: Layout,
-    children: [
-      {
-        path: '/',
-        component: () => import('views/micro/index')
-      },
-    ]
-  }
 ]
+
+console.log('start modulesRoutes.')
+const addressRoutes = [] 
+modulesRoutes.forEach((route) => {
+  const routerDict = Object.assign({}, route)
+  console.log('r objs >>> ', routerDict)
+  addressRoutes.push(routerDict) 
+}) 
+
+console.log('ttt addressRoutes >>> ', addressRoutes)
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes: baseRoutes.concat(addressRoutes)
 })
 
 export default router
