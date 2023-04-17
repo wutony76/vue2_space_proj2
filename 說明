@@ -1,0 +1,33 @@
+Base 230411 save
+
+Vue base proj 專案建置
+npm install eslint -g	
+npm install eslint --save
+eslint --init
+
+
+vue add router                      << 專案引入 router
+
+
+不只懂Vue 語法：什麼是slot？請示範slot 的用法？
+vue.config.js 的完整配置（超详细）！ - 掘金
+
+
+npm i element-ui -S
+
+vue公共页面布局layout - 尼古拉斯-富贵 - 博客园
+
+npm install webpack webpack-cli --save-dev
+
+
+Cannot GET 錯誤
+vue.config.js
+
+publicPath: '/'		// 需將點移除
+
+
+npm install css-loader style-loader --save-dev
+npm install sass-loader node-sass --save-dev
+
+
+npm i qiankun -S
