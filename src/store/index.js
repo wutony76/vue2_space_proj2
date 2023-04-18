@@ -8,46 +8,45 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-// const files = require.context('./modules', false, /\.js$/)
-// const modules = {}
+const files = require.context('./modules', false, /\.js$/)
+const modules = {}
 
-// files.keys().forEach((key) => {
-//   modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
-// })
-// Object.keys(modules).forEach((key) => {
-//   modules[key]['namespaced'] = true
-// })
-// const store = new Vuex.Store({
-//   modules
-// })
-// export default store
+files.keys().forEach((key) => {
+  modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
+})
+Object.keys(modules).forEach((key) => {
+  modules[key]['namespaced'] = true
+})
+const store = new Vuex.Store({
+  modules
+})
+export default store
 
 
 // sample
-export default new Vuex.Store({
-  state: {
-    numbers: [1, 3, 5, 7, 9]
-  },
-  getters: {
-    sortedNumbers: (state) => {
-      console.log("--store sortedNumbers")
-      return state.numbers.sort((a, b) => a - b) 
-    },
-    stringifyObj: (state) => {
-      console.log("--store stringData")
-      return JSON.stringify(state.numbers)
-    }
-
-  },
-  mutations: {
-    ADD_NUMBER(state, payload) {
-      state.numbers.push(payload)
-    }
-  },
-  actions: {
-    addNumber(context, number) {
-      context.commit("ADD_NUMBER", number)
-    }
-  },
-  modules: {},
-});
+// export default new Vuex.Store({
+//   state: {
+//     numbers: [1, 3, 5, 7, 9]
+//   },
+//   getters: {
+//     sortedNumbers: (state) => {
+//       console.log("--store sortedNumbers")
+//       return state.numbers.sort((a, b) => a - b) 
+//     },
+//     stringifyObj: (state) => {
+//       console.log("--store stringData")
+//       return JSON.stringify(state.numbers)
+//     }
+//   },
+//   mutations: {
+//     ADD_NUMBER(state, payload) {
+//       state.numbers.push(payload)
+//     }
+//   },
+//   actions: {
+//     addNumber(context, number) {
+//       context.commit("ADD_NUMBER", number)
+//     }
+//   },
+//   modules: {},
+// });
