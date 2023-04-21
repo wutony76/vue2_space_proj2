@@ -14,9 +14,8 @@ const modulesRoutes = modules.keys().reduce((rt, k) => {
   // console.log('k >', k)
   // console.log('name >', name)
   const module = modules(k).default
-  console.log('module >', module)
+  // console.log('module >', module)
   rt = rt.concat(module)
   return rt
 }, []).sort((a, b) => a.sort - b.sort)
-console.log('modulesRoutes >', modulesRoutes)
 export default modulesRoutes 

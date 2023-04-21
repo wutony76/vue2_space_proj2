@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './core/base'
 import router from './router'
 import store from './store'
-
-Vue.use(ElementUI)
-// Vue.prototype.env = process.env.NODE_ENV
+import base from './utils/base'
 
 const app = new Vue({
   el:'#app',
@@ -16,11 +13,9 @@ const app = new Vue({
   render: h => h(App)
 })
 
-console.log('process.env.NODE_ENV >', process.env.NODE_ENV)
-
-// window.vue = app 
-// window.store = store
-// window.router = router 
-
+// 全域變數設定
+// Vue.prototype.env = process.env.NODE_ENV
+Vue.prototype.$vue = app 
 Vue.prototype.$store = store
-console.log('store >>', store)
+
+base.self = app

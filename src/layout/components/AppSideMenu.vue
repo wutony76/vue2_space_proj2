@@ -2,7 +2,6 @@
 <!--  :router='true',true表示开启路由模式，开启之后，index值代表的就是路由地址-->
 <!--  :router='true'开启之后点击就会跳转到对应的路由，默认为false -->
 <!-- text-color 文字的颜色 -->
-
 <template>
   <el-menu
     unique-opened
@@ -35,6 +34,7 @@
       <span slot="title">Vue2微應用</span>
     </el-menu-item>
 
+  <el-menu-item-group title="PAGE SAMPLE VIEWS">
     <el-menu-item index="/pageA">
       <i class="el-icon-menu"></i>
       <span slot="title">PAGEA</span>
@@ -47,13 +47,24 @@
       <i class="el-icon-menu"></i>
       <span slot="title">PAGEC</span>
     </el-menu-item>
+  </el-menu-item-group>
+
+  <el-menu-item-group title="BASE PUBLIC VIEWS">
+    <el-menu-item index="/404">
+      <i class="el-icon-menu"></i>
+      <span slot="title">404PAGE</span>
+    </el-menu-item>
+    <el-menu-item index="/500">
+      <i class="el-icon-menu"></i>
+      <span slot="title">500PAGE</span>
+    </el-menu-item>
+  </el-menu-item-group>
 
 
-
-  <!-- <el-menu-item index="url-sample01">
+  <!-- 
+  <el-menu-item index="url-sample01">
     <router-link to="/sample01">Sample01</router-link>
   </el-menu-item>
-
   <el-menu-item index="url-about">
     <router-link to="/about">About</router-link>
   </el-menu-item>
@@ -62,7 +73,6 @@
     <el-menu-item index="1-1">item one</el-menu-item>
     <el-menu-item index="1-2">item two</el-menu-item>
   </el-menu-item-group>
-
   <el-menu-item-group title="Group Two">
     <el-menu-item index="1-1">item one</el-menu-item>
     <el-menu-item index="1-2">item two</el-menu-item>
@@ -73,7 +83,6 @@
     <el-menu-item index="1-2">item two</el-menu-item>
   </el-menu-item-group> -->
   </el-menu>
-
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 import global from "./global"
+import http from "../../core/http"
 
 const state = {
   v1: -1,
@@ -7,25 +8,24 @@ const state = {
 }
 const getters = {
   sortedNumbers: (state) => {
-    console.log("--store sortedNumbers")
+    // console.log("--store sortedNumbers")
     return state.numbers.sort((a, b) => a - b)
   },
   stringifyObj: (state) => {
-    console.log("--store stringData")
+    // console.log("--store stringData")
     return JSON.stringify(state.numbers)
   }
 }
 const actions = {
   returnTotal(context) {
-    console.log('test.get.global >>', global, global.state.userInfo.id)
-
+    // console.log('test.get.global >>', global, global.state.userInfo.id)
     context.dispatch('addNumber', 1000)
-    console.log('ttttt returnTotal >>', context)
+    // console.log('ttttt returnTotal >>', context)
     let sum = 0
     context.state.numbers.forEach((v) => {
       sum += v
     })
-    console.log('ttttt sum >>', sum)
+    // console.log('ttttt sum >>', sum)
   },
   addNumber(context, number) {
     context.commit("ADD_NUMBER", number)

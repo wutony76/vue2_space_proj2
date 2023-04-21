@@ -17,12 +17,22 @@
       storeStringifyOby = {{ storeStringifyOby }}  - {{ typeof storeStringifyOby }}<br/>
     </div>
 
+    <div>
+      <ul style="text-align: left;">
+        <li> <h6> message sample </h6> </li>
+        <li> <h6> self message sample </h6> </li>
+        <li> <h6> message sample </h6> </li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
 <script>
   import { mapState, mapActions, mapGetters } from 'vuex'
   import store from '@/store' 
+  // import base from '@/utils/base'
+  import { API } from '@/core/http'
 
   export default {
     name: 'About',
@@ -44,9 +54,11 @@
       }),
     },
     mounted () {
-      console.log('this > ', store)
-      // console.log('this.numbersCount > ', this.numbersCount)
-
+      /**
+       *  // base.self = this
+       *  console.log('about base', base.self.$msg('apple'))
+       */
+      /**
       // store sample
       if (this.$store) {
         console.log('this > ', this.$store)
@@ -60,9 +72,11 @@
         console.log('store1 > ', store1)
         console.log('store4 > ', store4)
       }
+      */
 
       // store sample
       this.startAdd()
+      this.init()
     },
 
     methods: {
@@ -70,7 +84,26 @@
         storeAddNumber: "sample/addNumber",
         returnTotal: "sample/returnTotal",
       }),
-      
+      init () {
+
+        // this.$message({
+        //   showClose: false,
+        //   message:'test',
+        //   type:'error',
+        //   duration:'2300',
+        // })
+
+        this.$msg('123321')
+
+        setTimeout(() => {
+          this.$msg('2.test')
+        }, 2 * 1000)
+
+        API({test:'api about test...', id: 111}, (res) => {
+          // 只要失敗皆是null，已被底層攔截處理
+          console.log('api about req >>>', res)
+        })
+      },
       startAdd () {
         console.log('ttt startAdd')
         this.storeAddNumber(70)

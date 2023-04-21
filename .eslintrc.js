@@ -1,9 +1,10 @@
 module.exports = {
     "env": {
 			"browser": true,
-			"es2021": true,
+			"es6": true,
 			"node": true,
-			"commonjs": true
+			// "es2021": true,
+			// "commonjs": true
     },
 		"globals": {
 			'Promise': 'off',
@@ -17,19 +18,19 @@ module.exports = {
     ],
     "overrides": [
     ],
-    "parserOptions": {
-			"ecmaVersion": "babel-eslint",
-			// "ecmaVersion": "latest",
+    parserOptions: {
+			// parser: 'babel-eslint',
 			ecmaVersion: 12,
-			sourceType: 'module',
+			sourceType: "module",
 			allowImpotExportEverywhere: true, 
-			ecmaFeatures:{
-				module: true,
-				legacyDecorators: true
+			ecmaFeatures: {
+				"jsx": true,
+				"module": true,
+				"legacyDecorators": true
 			}
     },
     "plugins": [
-        "vue"
+			"vue"
     ],
     "rules": {
 			'vue/no-unused-components':'off',
