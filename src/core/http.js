@@ -36,7 +36,7 @@ const REQUEST_SUCCESS = 0
 
 // start axios service
 function resHandler (res) {
-  // console.log('resHandler >>> ', res)
+  console.log('resHandler >>> ', res)
   // console.log('resHandler global >>> ', global)
   const code = res.data.code
   const status = res.status
@@ -75,27 +75,33 @@ function resHandler (res) {
       // console.log('resHandler run default.')
       break
   }
-  // console.log('resHandler returnMsg >>> ', returnMsg)
+  console.log('resHandler returnMsg >>> ', returnMsg)
   return returnMsg
 }
 
-const APITIMEOUT = 20 * 1000 
-const apiBaseUrl = 'https://jsonplaceholder.typicode.com/todos'
-const instance = axios.create({
+const APITIMEOUT = 20 * 1000
+// base api url list 
+const apiPaths = [
+  'https://jsonp.ttt.com/todos',
+  'https://ccc.typicode.com',
+  'https://ccc.typicode.com1',
+  'https://jsonplaceholder.typicode.com/todos', 
+]
+const defConfig = {
   method: 'POST',
-  baseURL: apiBaseUrl,
+  baseURL: apiPaths[0],
   timeout: APITIMEOUT,
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-})
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
+  index: 0,
+  retry: 0
+}
+const instance = axios.create(defConfig)
 
 // 請求API處理
 instance.interceptors.request.use(config => {
-  console.log('instance.interceptors.request >>> ', config)
+  console.log('instance.interceptors.request >>> ', config.baseURL)
   return config
 }, error => {
-  // eslint-disable-next-line no-undef
   return Promise.reject(error)
 })
 
@@ -106,6 +112,18 @@ instance.interceptors.response.use( res => {
   if (handleRes) return res.data
   else return null
 }, error => {
+  console.log('res error... retry >>', error.config.retry)
+  const config = error.config
+  config.index ++
+  if (config.index === apiPaths.length){
+    console.log('無可用base_url', config.retry)
+    // eslint-disable-next-line no-undef
+    return Promise.reject(error)
+  } 
+  config.retry ++
+  config.baseURL = apiPaths[config.index] 
+  console.log('res _url', config.baseURL)
+  return instance(config)
 })
 
 // const res = instance.post('', {

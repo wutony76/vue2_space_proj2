@@ -1,6 +1,8 @@
 <template v-slot:footer>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png"/>
+
+    <div @click="handleChange">get html2img</div>
     <div>
       <el-button
         @click="dialogVisible = true" 
@@ -47,6 +49,9 @@
           .catch(_ => {
           });
       },
+      handleChange(){
+        console.log('handleChange')
+      }
     },
   };
 </script>

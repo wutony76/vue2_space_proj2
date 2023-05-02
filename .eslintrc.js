@@ -1,13 +1,12 @@
 module.exports = {
-    "env": {
-			"browser": true,
-			"es6": true,
-			"node": true,
+    env: {
+			browser: true,
+			es6: true,
+			node: true,
 			// "es2021": true,
 			// "commonjs": true
     },
 		"globals": {
-			'Promise': 'off',
 			"process": true
 		}, 
     "extends": [
