@@ -18,14 +18,30 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import html2canvas from 'html2canvas';
+import UAParser from 'ua-parser-js'
+
+let ua = new UAParser(navigator.userAgent)
+console.log('navigator.userAgent >', navigator.userAgent)
+console.log('parser >', ua.getDevice().type)
+console.log('parser >', ua.getDevice())
 
 export default {
   name: 'HomeView',
   components: {
     HelloWorld
+  },
+  computed: {
+    ...mapState({
+      uaInfo: state => state.global.uaInfo,
+    })
+  },
+  mounted () {
+    // console.log('ttttt mounted', this.$device())
+    console.log('mxDevice > ', this.uaInfo.device)
   },
   methods: {
     generatorImage () {

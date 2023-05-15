@@ -30,6 +30,9 @@
 
 <script>
   import HelloWorld from '@/components/HelloWorld.vue';
+  import UAParser from 'ua-parser-js' 
+  let parser = new UAParser("user-agent");
+
   export default {
     name: 'home',
     components: {
@@ -39,6 +42,10 @@
       return {
         dialogVisible: false,
       };
+    },
+    mounted () {
+      console.log('ttt parser 1234567')
+      console.log('ttt parser', parser)
     },
     methods: {
       handleClose(done) {

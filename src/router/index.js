@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Layout from '@/layout/layout.vue'
-import HomeView from '@/views/HomeView.vue'
+import HomeView from '@/views/_HomeView.vue'
+import JumpHomeView from '@/views/JumpHomePage.vue'
 import vGoods from 'views/goods'
 import vAbout from 'views/about'
 import vIcons from 'views/icons'
@@ -12,16 +13,28 @@ Vue.use(VueRouter)
 const baseRoutes = [
   {
     path: '/',
-    redirect: 'home',
-    component: Layout,
-    children: [
-      {
-        path: 'home',
-        name: 'home',
-        component: HomeView
-      },
-    ]
+    name: 'home',
+    component: JumpHomeView
   },
+  {
+    path: '/home',
+    name: 'home',
+    component: JumpHomeView
+  },
+
+  // {
+  //   path: '/',
+  //   redirect: 'home',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'home',
+  //       name: 'home',
+  //       // component: HomeView
+  //       component: JumpHomeView
+  //     },
+  //   ]
+  // },
   {
     path: '/icons',
     component: Layout,
