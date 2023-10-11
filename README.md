@@ -1,4 +1,5 @@
 # self_space_proj
+v12.22.12
 
 ## Project setup
 ```
